@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: tu-usuario-o-organizacion/tu-repositorio # Cambia esto por tu repo
+  branch: main # Tu rama principal
+  site_domain: adr-hub.netlify.app # Opcional (tu dominio futuro)
+
+media_folder: "docs/adr/images" # Dónde se guardarán las imágenes si suben una
+public_folder: "/docs/adr/images"
+
+collections:
+  - name: "adrs"
+    label: "Registros de Decisiones (ADRs)"
+    folder: "docs/adr" # Carpeta base
+    # La magia de las subcarpetas:
+    # {{fields.category}} creará automáticamente subcarpetas basadas en lo que elija el usuario
+    path: "{{fields.category}}/{{fields.id}}-{{slug}}" 
+    create: true
+    slug: "{{title}}"
+    editor:
+      preview: false # Desactiva vista previa compleja para mantenerlo simple
+    fields:
+      - { label: "ID del ADR", name: "id", widget: "string", hint: "Ejemplo: 0001, 0002" }
+      - { label: "Título", name: "title", widget: "string" }
+      
+      # Este campo define la subcarpeta dinámica
+      - { label: "Categoría / Subcarpeta", name: "category", widget: "select", options: ["backend", "frontend", "devops", "datos", "seguridad"], hint: "Selecciona el subnivel de carpeta donde se guardará" }
+      
+      - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      
+      # Estados de Gobernanza (reemplaza las carpetas de estado)
+      - { label: "Estado de la Decisión", name: "status", widget: "select", options: ["Propuesto", "Aceptado", "Rechazado", "Supercedido"] }
+      
+      # Cuerpo del ADR usando editor visual de texto (WYSIWYG)
+      - { label: "Contexto", name: "context", widget: "markdown", hint: "¿Cuál es el problema técnico o de negocio que enfrentamos?" }
+      - { label: "Decisión", name: "decision", widget: "markdown", hint: "La alternativa elegida y por qué." }
+      - { label: "Consecuencias", name: "consequences", widget: "markdown", hint: "Pros, contras y riesgos de esta decisión." }
