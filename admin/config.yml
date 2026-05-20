@@ -8,8 +8,12 @@ public_folder: "/docs/adr/images"
 collections:
   - name: "adrs"
     label: "Registros de Decisiones (ADRs)"
-    folder: "docs/adr"
-    path: "{{fields.category}}/{{fields.id}}-{{slug}}"
+    
+    # 1. ELIMINA por completo la línea 'folder: "docs/adr"'
+    
+    # 2. Define la ruta completa absoluta empezando desde la raíz del repo:
+    path: "docs/adr/{{fields.category}}/{{fields.id}}-{{slug}}"
+    
     create: true
     slug: "{{title}}"
     editor:
@@ -23,3 +27,4 @@ collections:
       - { label: "Contexto", name: "context", widget: "markdown", hint: "¿Cuál es el problema técnico o de negocio que enfrentamos?" }
       - { label: "Decisión", name: "decision", widget: "markdown", hint: "La alternativa elegida y por qué." }
       - { label: "Consecuencias", name: "consequences", widget: "markdown", hint: "Pros, contras y riesgos de esta decisión." }
+
