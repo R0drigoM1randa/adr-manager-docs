@@ -1,72 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ADR Hub - Architecture Decision Records</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <style>
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background: #0f172a;
-        color: #e2e8f0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-      }
-      .container {
-        max-width: 600px;
-        text-align: center;
-      }
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #f8fafc;
-        margin-bottom: 1rem;
-      }
-      h1 span {
-        color: #38bdf8;
-      }
-      p {
-        font-size: 1.125rem;
-        color: #94a3b8;
-        margin-bottom: 2rem;
-        line-height: 1.7;
-      }
-      .btn {
-        display: inline-block;
-        background: #38bdf8;
-        color: #0f172a;
-        font-weight: 600;
-        font-size: 1rem;
-        padding: 0.75rem 2rem;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: background 0.2s;
-      }
-      .btn:hover { background: #7dd3fc; }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>ADR <span>Hub</span></h1>
-      <p>Plataforma centralizada para gestionar y documentar decisiones arquitectónicas de tu equipo.</p>
-      <a href="/admin/" class="btn">Abrir Panel de Administración</a>
-    </div>
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", function(user) {
-          if (!user) {
-            window.netlifyIdentity.on("login", function() {
-              document.location.href = "/admin/";
-            });
-          }
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMS</title>
+</head>
+<body>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
         });
       }
-    </script>
-  </body>
+    });
+  }
+</script>
+
+</body>
 </html>
