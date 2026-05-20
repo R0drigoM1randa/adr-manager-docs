@@ -9,7 +9,8 @@ collections:
   - name: "adrs"
     label: "Registros de Decisiones (ADRs)"
     
-    # 1. ELIMINA por completo la línea 'folder: "docs/adr"'
+    # 1. Dejamos el 'folder' apuntando a la raíz base común
+    folder: "docs/adr"
     
     # 2. Define la ruta completa absoluta empezando desde la raíz del repo:
     path: "docs/adr/{{fields.category}}/{{fields.id}}-{{slug}}"
