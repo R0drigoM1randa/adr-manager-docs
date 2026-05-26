@@ -6,4 +6,4 @@ export async function onRequest(context) {
   const url = `https://github.com/login/oauth/authorize?client_id=${client_id}&scope=repo`;
   
   return Response.redirect(url, 302);
-}
+} 
