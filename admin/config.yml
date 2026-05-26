@@ -1,11 +1,11 @@
 backend:
   name: github
-  repo: R0drigoM1randa/adr-manager-docs # <-- REEMPLAZA CON TU REPO REAL (ej: ecom-team/adr-docs)
+  repo: R0drigoM1randa/adr-manager-docs
   branch: main
-  
-  # Esta URL utiliza un servidor OAuth público y gratuito para validar los inicios de sesión de tu equipo con GitHub
-  base_url: https://vercel.app
-  auth_endpoint: /api/v1/authorize
+  publish_mode: editorial_workflow
+  # APUNTAR A LAS FUNCIONES LOCALES DE CLOUDFLARE
+  base_url: https://adr-manager-docs.rodrigo-miranda.workers.dev
+  auth_endpoint: auth  
 
 media_folder: "docs/adr/images"
 public_folder: "/docs/adr/images"
