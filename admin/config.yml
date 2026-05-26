@@ -4,7 +4,7 @@ backend:
   branch: main
   publish_mode: editorial_workflow
   # APUNTAR A LAS FUNCIONES LOCALES DE CLOUDFLARE
-  base_url: https://adr-manager-docs.rodrigo-miranda.workers.dev
+  base_url: https://450de480.adr-manager-docs.pages.dev
   auth_endpoint: auth  
 
 media_folder: "docs/adr/images"
